@@ -1,0 +1,28 @@
+@import "variable.css";
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+* {padding: 0;margin: 0; box-sizing: border-box;}
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: "JetBrains Mono", monospace;
+}
+
+a{text-decoration: none;color: var(--foreground);}
+
+header {
+    background: var(--color-secondary);
+    padding: 2vw 1vw;
+}
+
+main {
+    display: flex;
+    gap: 1vw;
+    flex-direction: column;
+    align-items: center;
+    padding: 5vw 0;
+
+    #cords {
+        font-size: 0.5rem;
+    }
+}
