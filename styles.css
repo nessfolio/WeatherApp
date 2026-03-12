@@ -38,7 +38,6 @@ main {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 5vw; 
         width: clamp(300px, 5vw, 800px);
         height: clamp(200px, 5vw, 1000px);
         border-radius: 20px;
@@ -56,6 +55,7 @@ main {
             animation-duration: 2s;
             animation-iteration-count: infinite;
             animation-timing-function: linear;
+            flex-shrink: 0;
         }
     }
     
