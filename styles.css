@@ -3,20 +3,28 @@
 
 * {padding: 0;margin: 0; box-sizing: border-box;}
 body {
-    background: var(--background);
     color: var(--foreground);
     font-family: "JetBrains Mono", monospace;
+    background-image: url('./img/planet.jpg');
 }
 
 a{text-decoration: none;color: var(--foreground);}
 
 header {
-    background: var(--color-secondary);
+    background: var(--color-primary);
     padding: 2vw 1vw;
+
+    opacity: .5;
 }
 
 main {
-    display: flex;
+    display: inline-block;
+    background-color: var(--color-primary);
+    opacity: .5;
+    height: 100vh;
+
+
+    display: inline-flex;
     gap: 1vw;
     flex-direction: column;
     align-items: center;
@@ -29,7 +37,7 @@ main {
         width: 8rem;
         height: 8rem;
         border-radius: 50%;
-        border: .5rem dashed var(--color-secondary);
+        border: .5rem dashed var(--color-primary);
         animation-name: spin;
         animation-duration: 2s;
         animation-iteration-count: infinite;
