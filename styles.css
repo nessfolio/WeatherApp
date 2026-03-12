@@ -23,6 +23,25 @@ main {
     padding: 5vw 0;
 
     #cords {
-        font-size: 0.5rem;
+        font-size: 0.75rem;
+    }
+    .loading-circle {
+        width: 8rem;
+        height: 8rem;
+        border-radius: 50%;
+        border: .5rem dashed var(--color-secondary);
+        animation-name: spin;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
