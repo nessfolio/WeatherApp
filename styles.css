@@ -11,9 +11,16 @@ body {
 
 a{text-decoration: none;color: var(--foreground);}
 
+header {
+    background-color: var(--color-primary);
+    opacity: .5;
+    display: inline-block;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
 main {
-    width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -30,21 +37,23 @@ main {
         justify-content: center;
         padding: 5vw; 
         border-radius: 20px;
-    }
 
-    #cords {
-        font-size: 0.75rem;
+
+        #cords {
+            font-size: 0.75rem;
+        }
+        .loading-circle {
+            width: 8rem;
+            height: 8rem;
+            border-radius: 50%;
+            border: .5rem dashed var(--color-loading);
+            animation-name: spin;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
     }
-    .loading-circle {
-        width: 8rem;
-        height: 8rem;
-        border-radius: 50%;
-        border: .5rem dashed var(--color-primary);
-        animation-name: spin;
-        animation-duration: 2s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-    }
+    
 }
 
 @keyframes spin {
