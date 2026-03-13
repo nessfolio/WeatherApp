@@ -1,15 +1,17 @@
 @import "variable.css";
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
-* {padding: 0;margin: 0; box-sizing: border-box;}
+* {padding: 0;margin: 0; box-sizing: border-box;font-size: 1.125rem;font-family: "JetBrains Mono", monospace;}
 body {
     color: var(--foreground);
-    font-family: "JetBrains Mono", monospace;
     background-image: url('./img/planet.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 
     height: 100vh;
+}
+h1 {
+    font-size: 1.7rem;
 }
 
 a{text-decoration: none;color: var(--foreground);}
@@ -41,7 +43,33 @@ main {
             background-color: var(--color-primary);
             opacity: .7;
             color: #fff;
-        }
+
+            border: none;
+            outline: none;  
+            box-shadow: none;
+            -webkit-appearance: none;
+            appearance: none;
+
+            padding: 10px;
+
+
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+                }
+            }
+            .search input:focus {
+            transform: scale(1.02);
+            background-color: rgba(0, 0, 0, 0.5); 
+            box-shadow: 
+                0 0 0 2px rgba(255, 255, 255, 0.2),
+                0 15px 35px rgba(0, 0, 0, 0.4);
+            input::placeholder {
+                color: rgba(255, 255, 255, 0.5);
+                transition: color 0.3s ease;
+            }
+            input:focus::placeholder {
+                color: rgba(255, 255, 255, 0.8);
+            }
     }
     
     
@@ -56,6 +84,7 @@ main {
         justify-content: center;
         width: clamp(300px, 5vw, 800px);
         min-height: clamp(200px, 5vw, 1000px);
+        padding: 1vw;
         border-radius: 20px;
 
 
