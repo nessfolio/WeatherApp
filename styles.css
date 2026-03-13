@@ -26,7 +26,23 @@ header {
 main {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+
+    .search {
+
+        margin-bottom: 50px;
+        input {
+            width: clamp(300px, 5vw, 800px);
+            height: clamp(50px, 1vw, 200px);
+
+            border-radius: 20px;
+            background-color: var(--color-primary);
+            opacity: .7;
+            color: #fff;
+        }
+    }
     
     
     
@@ -39,7 +55,7 @@ main {
         align-items: center;
         justify-content: center;
         width: clamp(300px, 5vw, 800px);
-        height: clamp(200px, 5vw, 1000px);
+        min-height: clamp(200px, 5vw, 1000px);
         border-radius: 20px;
 
 
@@ -47,8 +63,8 @@ main {
             font-size: 0.75rem;
         }
         .loading-circle {
-            width: 8rem;
-            height: 8rem;
+            min-width: 8rem;
+            min-height: 8rem;
             border-radius: 50%;
             border: .5rem dashed var(--color-loading);
             animation-name: spin;

@@ -11,14 +11,19 @@
         <div class="logo"><a href="">nessMeteo</a></div>
     </header>
     <main>
-        <div class="weather">
+        <section class="search">
+            <form id="form">
+                <input type="text" id="input">
+            </form>
+        </section>
+        <section class="weather">
             <div id="loadingCircle" class="loading-circle"></div>
     
             <h1 id="city"></h1>
             <p id="cords"></p>
             <div id="isDay"></div>
             <div id="temperature"></div>
-        </div>
+        </section>
     </main>
 
     <script src="script.js"></script>
