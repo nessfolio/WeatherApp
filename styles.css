@@ -35,8 +35,9 @@ main {
     .search {
 
         margin-bottom: 50px;
+        margin-top: 50px;
         input {
-            width: clamp(300px, 5vw, 800px);
+            width: clamp(200px, 5vw, 800px);
             height: clamp(50px, 1vw, 200px);
 
             border-radius: 20px;
@@ -55,9 +56,8 @@ main {
 
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-                }
-            }
-            .search input:focus {
+        }
+        input:focus {
             transform: scale(1.02);
             background-color: rgba(0, 0, 0, 0.5); 
             box-shadow: 
@@ -70,8 +70,24 @@ main {
             input:focus::placeholder {
                 color: rgba(255, 255, 255, 0.8);
             }
+        }  
+        
+        button {
+            width: clamp(80px, 1vw, 800px);
+            height: clamp(50px, 1vw, 200px);
+
+            border-radius: 20px;
+            background-color: var(--color-primary);
+            opacity: .7;
+            color: var(--foreground);
+
+            border: none;
+            outline: none;  
+            box-shadow: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
     }
-    
     
     
     .weather {
