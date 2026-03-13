@@ -24,6 +24,7 @@ async function getCord(city) {
         try {
                 const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${city}&format=json`)
                 const cords = await response.json()
+                if(cords.length === 0) throw new Error('Location not found')
                 console.log(cords)
                 console.log(cords[0].lat)
                 console.log(cords[0].lon)
@@ -35,7 +36,7 @@ async function getCord(city) {
         
                 return [cityName, latitude, longitude]
         } catch(error) {
-                cityHTML.innerText = ` ${error}`
+                cityHTML.innerText = `${error}`
                 cityHTML.style = 'color: red;'
         } finally {
                 loadingHTML.classList.remove('loading-circle')
@@ -43,16 +44,16 @@ async function getCord(city) {
 }
 
 
-async function showWeather(array) {
+async function showWeather([cityName, latitude, longitude]) {
         try {
-                const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${array[1]}&longitude=${array[2]}&hourly=temperature_2m&current=temperature_2m,is_day&forecast_days=16`);
+                const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m&current=temperature_2m,is_day&forecast_days=16`);
                 const infoWeather = await response.json();
 
                 console.log(infoWeather)
 
-                cityHTML.innerText = ` ${array[0]}`
+                cityHTML.innerText = ` ${cityName}`
                 cityHTML.style = 'color: #fff;'
-                cordsHTML.innerText = `cords: ${array[1]}, ${array[2]}`
+                cordsHTML.innerText = `cords: ${latitude}, ${longitude}`
                 isDayHTML.innerText = `${infoWeather.current.is_day == 1 ? 'Day' : 'Night'}`
                 temperatureHTML.innerText = `${infoWeather.current.temperature_2m}°C`
         } catch(error) {
@@ -62,31 +63,3 @@ async function showWeather(array) {
                 loadingHTML.classList.remove('loading-circle')
         }
 }
-
-
-
-
-
-
-/*
-fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m&current=temperature_2m,is_day`)
-.then(response => response.json())
-.then(data => {
-        console.log(data)
-        // console.log(data.current)
-        // console.log(data.current.is_day)
-        // console.log(data.current.temperature_2m)
-
-
-
-        cityHTML.innerText = ` ${city}`
-        cordsHTML.innerText = `cords: ${latitude}, ${longitude}`
-        isDayHTML.innerText = `${data.current.is_day == 1 ? 'Day' : 'Night'}`
-        temperatureHTML.innerText = `${data.current.temperature_2m}°C`
-        },
-        (error) => {
-                cityHTML.innerText = ` ${error}`
-                cityHTML.style = 'color: red;'
-        }
-)
-.finally(() => loadingHTML.classList.remove('loading-circle')) */
