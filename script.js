@@ -15,9 +15,20 @@ formHTML.addEventListener('submit', (event) => {
         event.preventDefault();
 
         let inputValue = inputHTML.value 
+
+        cityHTML.innerText = ``
+        cordsHTML.innerText = ``
+        isDayHTML.innerText = ``
+        temperatureHTML.innerText = ``
+
+        loadingHTML.classList.add('loading-circle')
         
         getCord(`${inputValue}`)
-                .then((arr) => showWeather(arr))
+                .then((arr) => {
+                        if (arr) {
+                                showWeather(arr)
+                        }
+                })
 })
 
 async function getCord(city) {
@@ -36,10 +47,11 @@ async function getCord(city) {
         
                 return [cityName, latitude, longitude]
         } catch(error) {
-                cityHTML.innerText = `${error}`
-                cityHTML.style = 'color: red;'
+                cityHTML.innerText = `${error}`;
+                cityHTML.style = 'color: red;';
         } finally {
-                loadingHTML.classList.remove('loading-circle')
+                inputHTML.value = '';
+                loadingHTML.classList.remove('loading-circle');
         }
 }
 
